@@ -18,14 +18,3 @@ Add/edit/delete prep items
 Assign preps to specific days with day-specific quantities
 Same prep can have different quantities on different days
 Visual day assignment grid (Monday-Sunday)
-
-prep-list-app/
-├── user-app/ # Kitchen staff interface
-│ ├── index.html
-│ ├── style.css
-│ └── app.js
-├── admin-app/ # Management interface
-│ ├── index.html
-│ ├── style.css
-│ └── admin.js
-└── README.md
