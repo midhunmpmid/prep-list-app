@@ -1,0 +1,244 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, sans-serif;
+  background: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.date-display {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+}
+
+.day-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+.tab-btn {
+  flex: 1;
+  min-width: 120px;
+  padding: 15px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: 2px solid #e0e0e0;
+  background: white;
+  color: #666;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+  border-color: #3498db;
+  color: #3498db;
+}
+
+.tab-btn.active {
+  background: #3498db;
+  color: white;
+  border-color: #3498db;
+}
+
+.prep-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  min-height: 400px;
+}
+
+.prep-table {
+  display: flex;
+  flex-direction: column;
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 60px 2fr 2fr 3fr;
+  gap: 15px;
+  padding: 15px 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: #2c3e50;
+  font-size: 1.1rem;
+}
+
+.table-body {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.prep-row {
+  display: grid;
+  grid-template-columns: 60px 2fr 2fr 3fr;
+  gap: 15px;
+  padding: 20px;
+  border: 2px solid #ecf0f1;
+  border-radius: 8px;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.prep-row:hover {
+  background: #f8f9fa;
+  border-color: #3498db;
+}
+
+.prep-row.completed {
+  opacity: 0.6;
+  background: #f0f0f0;
+}
+
+.prep-row.completed .prep-task,
+.prep-row.completed .prep-quantity,
+.prep-row.completed .prep-instructions {
+  text-decoration: line-through;
+}
+
+.col-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.col-checkbox input[type="checkbox"] {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  accent-color: #27ae60;
+}
+
+.prep-task {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.prep-quantity {
+  font-size: 1.1rem;
+  color: #e67e22;
+  font-weight: 500;
+}
+
+.prep-instructions {
+  font-size: 1rem;
+  color: #7f8c8d;
+  line-height: 1.4;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #95a5a6;
+}
+
+.empty-state-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.empty-state-text {
+  font-size: 1.3rem;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.2rem;
+  color: #7f8c8d;
+}
+
+.error {
+  background: #e74c3c;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .col-checkbox input[type="checkbox"] {
+    width: 32px;
+    height: 32px;
+  }
+
+  .prep-task {
+    font-size: 1.3rem;
+  }
+
+  .prep-quantity {
+    font-size: 1.2rem;
+  }
+
+  .prep-instructions {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .table-header {
+    display: none;
+  }
+
+  .prep-row {
+    grid-template-columns: 50px 1fr;
+    grid-template-areas:
+      "checkbox task"
+      "checkbox quantity"
+      "checkbox instructions";
+    gap: 10px;
+  }
+
+  .col-checkbox {
+    grid-area: checkbox;
+  }
+
+  .prep-task {
+    grid-area: task;
+  }
+
+  .prep-quantity {
+    grid-area: quantity;
+    font-size: 1rem;
+  }
+
+  .prep-instructions {
+    grid-area: instructions;
+    font-size: 0.95rem;
+  }
+}

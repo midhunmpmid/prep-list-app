@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weekly Prep List</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>♨️ Hot Section - Daily Prep List ♨️</h1>
+        <div class="date-display" id="currentDate"></div>
+      </header>
+
+      <div class="day-tabs">
+        <button class="tab-btn" data-day="1">Monday</button>
+        <button class="tab-btn" data-day="2">Tuesday</button>
+        <button class="tab-btn" data-day="3">Wednesday</button>
+        <button class="tab-btn" data-day="4">Thursday</button>
+        <button class="tab-btn" data-day="5">Friday</button>
+        <button class="tab-btn" data-day="6">Saturday</button>
+        <button class="tab-btn" data-day="7">Sunday</button>
+      </div>
+
+      <div class="prep-container">
+        <div class="loading" id="loading">Loading...</div>
+        <div class="error" id="error" style="display: none"></div>
+
+        <div class="prep-table" id="prepTable" style="display: none">
+          <div class="table-header">
+            <div class="col-checkbox"></div>
+            <div class="col-task">Task</div>
+            <div class="col-quantity">Quantity</div>
+            <div class="col-instructions">Instructions</div>
+          </div>
+          <div class="table-body" id="prepList"></div>
+        </div>
+
+        <div class="empty-state" id="emptyState" style="display: none">
+          <div class="empty-state-icon">😴</div>
+          <div class="empty-state-text">No preps scheduled for this day</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

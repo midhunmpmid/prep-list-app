@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prep List Admin</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Prep List Admin Panel</h1>
+      </header>
+
+      <div class="admin-sections">
+        <section class="card">
+          <h2>Add New Prep ➕</h2>
+          <form id="addPrepForm">
+            <input
+              type="text"
+              id="prepTask"
+              placeholder="Task name (e.g., Prep1)"
+              required
+            />
+            <textarea
+              id="prepInstructions"
+              placeholder="Instructions (e.g., Put 1 bag in 2 containers)"
+              rows="3"
+            ></textarea>
+            <button type="submit">Add Prep</button>
+          </form>
+        </section>
+
+        <section class="card">
+          <h2>Manage Preps 🛠️</h2>
+          <div id="prepsList"></div>
+        </section>
+
+        <section class="card">
+          <h2>Assign Prep to Days (with Quantities) 📲</h2>
+          <select id="prepSelect">
+            <option value="">Select a prep</option>
+          </select>
+
+          <div class="day-assignment-grid" id="dayAssignmentGrid"></div>
+
+          <button id="assignDaysBtn">Update Days & Quantities</button>
+        </section>
+      </div>
+    </div>
+
+    <script src="admin.js"></script>
+  </body>
+</html>
