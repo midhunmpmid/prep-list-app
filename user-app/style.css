@@ -242,3 +242,132 @@ header h1 {
     font-size: 0.95rem;
   }
 }
+
+/* Drag and Drop Styles */
+
+.drag-handle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #95a5a6;
+  cursor: grab;
+  user-select: none;
+  padding: 0 10px;
+}
+
+.drag-handle:active {
+  cursor: grabbing;
+}
+
+.prep-row {
+  cursor: move;
+  transition: all 0.2s ease;
+}
+
+.prep-row.dragging {
+  opacity: 0.5;
+  background: #e8f4f8;
+  border-color: #3498db;
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.prep-row.drag-over {
+  border-top: 3px solid #3498db;
+  background: #f0f8ff;
+}
+
+/* Update grid to include drag handle */
+.table-header {
+  display: grid;
+  grid-template-columns: 50px 60px 2fr 2fr 3fr;
+  gap: 15px;
+  padding: 15px 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: #2c3e50;
+  font-size: 1.1rem;
+}
+
+.prep-row {
+  display: grid;
+  grid-template-columns: 50px 60px 2fr 2fr 3fr;
+  gap: 15px;
+  padding: 20px;
+  border: 2px solid #ecf0f1;
+  border-radius: 8px;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+/* Touch feedback */
+@media (hover: none) {
+  .prep-row:active {
+    background: #f0f8ff;
+  }
+}
+
+/* Toast notification */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: #27ae60;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  font-size: 1rem;
+  font-weight: 600;
+  z-index: 10000;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  .table-header {
+    display: none;
+  }
+
+  .prep-row {
+    grid-template-columns: 40px 50px 1fr;
+    grid-template-areas:
+      "handle checkbox task"
+      "handle checkbox quantity"
+      "handle checkbox instructions";
+    gap: 10px;
+  }
+
+  .drag-handle {
+    grid-area: handle;
+    font-size: 1.2rem;
+  }
+
+  .col-checkbox {
+    grid-area: checkbox;
+  }
+
+  .prep-task {
+    grid-area: task;
+  }
+
+  .prep-quantity {
+    grid-area: quantity;
+    font-size: 1rem;
+  }
+
+  .prep-instructions {
+    grid-area: instructions;
+    font-size: 0.95rem;
+  }
+}
